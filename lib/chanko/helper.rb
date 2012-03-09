@@ -4,7 +4,6 @@ module Chanko
     self.files = {}
     def self.reset
       self.files.keys.each do |path|
-        puts path
         self.remove_old_methods_by_file_path(path)
       end
     end
@@ -37,6 +36,7 @@ module Chanko
       return unless self.files[path]
       return if self.files[path][:timestamp] > Time.now - check_to_update_interval
       self.files[path][:methods].each do |method|
+        puts method
         remove_method(method)
       end
       self.files[path][:methods] = []
