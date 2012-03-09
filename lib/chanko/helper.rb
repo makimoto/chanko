@@ -4,6 +4,7 @@ module Chanko
     self.files = {}
     def self.reset
       self.files.keys.each do |path|
+        puts path
         self.remove_old_methods_by_file_path(path)
       end
     end
